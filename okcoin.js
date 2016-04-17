@@ -16,8 +16,6 @@ var websocket = new WebSocket(wsUri);
 
 console.log("OKCoin: connecting");
 
-var md5 = require('./MD5.js');
-
 module.exports.okcoin_socket = websocket;
 
 var okbuy3, oksell3;

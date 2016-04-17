@@ -22,10 +22,10 @@ function getSellBuyPrice() {
 
 	if (typeof(huobisell) != "undefined" && typeof(oksell) != "undefined") {
 		
-		console.log(" Huobi : " + huobisell);
-		console.log(" Huobi : " + huobibuy);
-		console.log(" OKCoin: " + oksell);
-		console.log(" OKCoin: " + okbuy);
+		// console.log(" Huobi : " + huobisell);
+		// console.log(" Huobi : " + huobibuy);
+		// console.log(" OKCoin: " + oksell);
+		// console.log(" OKCoin: " + okbuy);
 
         return [huobisell, huobibuy, oksell, okbuy];
 	}
@@ -50,6 +50,9 @@ function arbitrageTrade() {
         price_diff1 = huobibuy - oksell;
         price_diff2 = okbuy - huobisell;
 
+        console.log("  Price_diff1: " + price_diff1);
+        console.log("  Price_diff2: " + price_diff2);
+
         if (i < 50) {
             arr1.push(price_diff1);
             arr2.push(price_diff2);
@@ -73,7 +76,7 @@ function arbitrageTrade() {
             if (price_diff1 > avg1 && price_diff1 > 0.5){
 
                 HuobiTrade.HuobiTrade('sell', huobibuy - 10, 0.02);
-                OKCoin.oktrade('buy', oksell + 10, 0.1);
+                OKCoin.oktrade('buy', oksell + 10, 0.02);
                 console.log("buy OKCoin sell Huobi ");
                 // count++;
 
@@ -81,7 +84,7 @@ function arbitrageTrade() {
             else if (price_diff2 > avg2 && price_diff2 > 0.5){
 
                 HuobiTrade.HuobiTrade('buy', huobisell + 10, 0.02);
-                OKCoin.oktrade('sell', okbuy - 10, 0.1);
+                OKCoin.oktrade('sell', okbuy - 10, 0.02);
                 console.log("buy Huobi sell OKCoin ");
                 // count++;
 

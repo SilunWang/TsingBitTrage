@@ -56,7 +56,7 @@ function okcoin_testWebSocket() {
 
 function onOpen(evt) {
     console.log("OKCoin: Connected");
-    doSend("{'event':'addChannel','channel':'ok_btccny_depth'}"); 
+    doSend("{'event':'addChannel','channel':'ok_sub_spotcny_btc_depth_20'}"); 
 }
 
 function onClose(evt) {
@@ -75,8 +75,9 @@ function onMessage(evt) {
         
     } else if (data_obj.channel == 'ok_spotusd_cancel_order' || data_obj.channel == 'ok_spotcny_cancel_order') {
     } else {
-        oksell3 = data_obj.data.asks[17][0];// OKCoin Price-ask 3
-        okbuy3 = data_obj.data.bids[2][0];// OKCoin Price-bid 3
+        console.log(re_data);
+        // oksell3 = data_obj.data.asks[17][0];// OKCoin Price-ask 3
+        // okbuy3 = data_obj.data.bids[2][0];// OKCoin Price-bid 3
     }
 }
 

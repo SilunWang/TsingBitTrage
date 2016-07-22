@@ -4,8 +4,7 @@
 // Apr 14, 2016
 // Lianqiang Mao
 ////////////////////////////////////////////////////////////// 
-var partner = "3554048"; //API Partner 
-var secretKey = "8FB523C1C4363B68D2A9784050B62A22"; 
+
 var output;
 
 var okbuy3, oksell3, huobibuy3, huobisell3;
